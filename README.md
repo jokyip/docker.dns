@@ -69,4 +69,12 @@ bin/start.sh
 ```
 
 ## service log
-error.log and access.log can be found under directory log/.
+named.log, error.log and access.log can be found under directory log/.
+
+## update dns record or domain
+```
+docker exec -it dns1 sh -c "export TERM=xterm; exec sh"
+# script/record.coffee -u user -p password --add abc.com @ NS ns1.abc.com.
+# script/record.coffee -u user -p password --add abc.com ns1 NS 10.1.1.1
+# script/domain.coffee -u user -p password --del abc.com
+```
