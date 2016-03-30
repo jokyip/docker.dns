@@ -16,7 +16,7 @@ module.exports =
 	zone:	"""
 			zone \"<%=name%>\" {
 				type master;
-				file \"db.<%=name%>\";
+				file \"/etc/bind/conf.d/db.<%=name%>\";
 			};
 			
 		"""
@@ -35,9 +35,9 @@ module.exports =
 			password:	''
 			database:	'dns'
 	log:
-		level:		'silly'
+		level:		'error'
 		custom: new winston.Logger
-			level:		'silly'
+			level:		'error'
 			transports: [
 				new winston.transports.File
 					filename:	'log/error.log'

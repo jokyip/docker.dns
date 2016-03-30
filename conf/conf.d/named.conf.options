@@ -23,3 +23,13 @@ options {
 	auth-nxdomain no;    # conform to RFC1035
 	listen-on-v6 { any; };
 };
+
+logging {
+	channel file_log {
+		file "/usr/src/app/log/named.log" versions 2 size 5m;
+		print-time yes;
+	};
+	category default {
+		file_log;
+	};
+};
