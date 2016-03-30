@@ -7,6 +7,6 @@ RUN tar --strip-components=1 -xzf /tmp/master.tar.gz
 RUN rm /tmp/master.tar.gz /etc/bind/named.conf && ln -s /usr/src/app/conf.d/named.conf /etc/bind/named.conf
 RUN npm install coffee-script -g && npm install
 RUN ln -s /usr/local/bin/coffee /usr/bin/coffee
-RUN echo 'nameserver 127.0.0.1' >/etc/resolv.conf
+EXPOSE 53/udp 53/tcp
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT /usr/sbin/service bind9 start && npm start

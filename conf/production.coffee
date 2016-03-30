@@ -10,9 +10,16 @@ module.exports =
 		verifyURL:			'https://mob.myvnc.com/org/oauth2/verify/'
 		scope:				[ "https://mob.myvnc.com/org/users"]
 		client:
-			id:		'oauth2 client id'
-			secret: 'oauth2 client secret'
+			id:		'client id'
+			secret: 'client secret'
 	soa:	[300, 180, 1209600, 300] # [refresh, retry, expire, ttl]
+	zone:	"""
+			zone \"<%=name%>\" {
+				type master;
+				file \"db.<%=name%>\";
+			};
+			
+		"""
 	file: (name) ->
 		"conf.d/#{name}"
 	models:
