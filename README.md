@@ -34,6 +34,15 @@ docker run -d --name mongo mongo
 			user:		''
 			password:	''
 			database:	'dns'
+	log:
+		level:		'silly'
+		custom: new winston.Logger
+			level:		'silly'
+			transports: [
+				new winston.transports.File
+					filename:	'log/error.log'
+					timestamp:	true
+			]
 ```	
 
 ## volumes
