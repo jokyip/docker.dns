@@ -15,9 +15,10 @@ docker pull mongo
 docker run -d --name mongo mongo
 ```
 
-## update oauth2, mongo db, log level settings
-
+## update service url, port, oauth2, mongo db, log level settings
 ```
+	port:		3000
+	url:		'https://mob.myvnc.com/dns'
 	oauth2:
 		tokenUrl:			'https://mob.myvnc.com/org/oauth2/token/'
 		verifyURL:			'https://mob.myvnc.com/org/oauth2/verify/'
@@ -44,6 +45,13 @@ docker run -d --name mongo mongo
 					timestamp:	true
 			]
 ```	
+
+## update dns forwarders in conf/conf.d/named.conf.options
+```
+	// forwarders {
+	// 	0.0.0.0;
+	// };
+```
 
 ## volumes
 See bin/start.sh
